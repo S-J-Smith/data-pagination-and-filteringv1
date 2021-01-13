@@ -4,19 +4,34 @@ FSJS Project 2 - Data Pagination and Filtering
 */
 
 
-
 /*
 For assistance:
    Check out the "Project Resources" section of the Instructions tab: https://teamtreehouse.com/projects/data-pagination-and-filtering#instructions
    Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
 */
 
+/* Variable to store the number of items to select at any given time */
 
+const perPage = 2;
 
 /*
 Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
+
+function students(list, page) {
+   let startIndex = page * perPage; - perPage
+   let endIndex = page * perPage;
+};
+
+ul = document.querySelectorAll('.student-list');
+ul.innerHTML = '';
+
+for (i = 0; i < list.length; i ++) {
+   if (i >= startIndex && < endIndex) {
+      document.createElement(ul);
+   }
+}
 
 
 
