@@ -20,19 +20,32 @@ This function will create and insert/append the elements needed to display a "pa
 */
 
 function students(list, page) {
-   let startIndex = page * perPage; - perPage
-   let endIndex = page * perPage;
+   let startIndex = (page * perPage) - perPage;
+   let endIndex = (page * perPage);
+
+   studentList = document.querySelectorAll('.student-list');
+   studentList.innerHTML = '';
+
+      for (i = 0; i < list.length; i ++) {
+         if (i >= startIndex && i < endIndex) {
+            document.createElement(
+               `
+               <li class="student-item cf">
+                  <div class="student-details">
+                     <img class="avatar" src="https://randomuser.me/api/portraits/women/25.jpg" alt="Profile Picture">
+                     <h3>Ethel Dean</h3>
+                     <span class="email">ethel.dean@example.com</span>
+                  </div>
+                  <div class="joined-details">
+                     <span class="date">Joined 12-15-2005</span>
+                  </div>
+             </li>
+             `
+            );
+            studentList.insertAdjacentHTML('beforeend', li);
+         }
+      }
 };
-
-ul = document.querySelectorAll('.student-list');
-ul.innerHTML = '';
-
-for (i = 0; i < list.length; i ++) {
-   if (i >= startIndex && < endIndex) {
-      document.createElement(ul);
-   }
-}
-
 
 
 /*
