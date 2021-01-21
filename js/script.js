@@ -12,7 +12,7 @@ For assistance:
 
 /* Variable to store the number of items to select at any given time */
 
-const perPage = 2;
+const perPage = 1;
 
 /*
 Create the `showPage` function
@@ -23,13 +23,12 @@ function students(list, page) {
    let startIndex = (page * perPage) - perPage;
    let endIndex = (page * perPage);
 
-   studentList = document.querySelectorAll('.student-list');
+   studentList = document.querySelector('.student-list');
    studentList.innerHTML = '';
 
       for (i = 0; i < list.length; i ++) {
          if (i >= startIndex && i < endIndex) {
-            document.createElement(
-               `
+            const html = (`
                <li class="student-item cf">
                   <div class="student-details">
                      <img class="avatar" src="https://randomuser.me/api/portraits/women/25.jpg" alt="Profile Picture">
@@ -40,14 +39,13 @@ function students(list, page) {
                      <span class="date">Joined 12-15-2005</span>
                   </div>
              </li>
-             `
-            );
-            studentList.insertAdjacentHTML('beforeend', li);
+            `);
+            studentList.insertAdjacentHTML('beforeend', html);
          }
       }
 };
 
-
+students(data, 1);
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
