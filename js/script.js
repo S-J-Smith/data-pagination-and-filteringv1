@@ -12,7 +12,7 @@ For assistance:
 
 /* Variable to store the number of items to select at any given time */
 
-const perPage = 1;
+const perPage = 9;
 
 /*
 Create the `showPage` function
@@ -26,20 +26,11 @@ function students(list, page) {
    studentList = document.querySelector('.student-list');
    studentList.innerHTML = '';
 
-      for (i = 0; i < list.length; i ++) {
+      for (let i = 0; i < list.length; i ++) {
          if (i >= startIndex && i < endIndex) {
-            const html = (`
-               <li class="student-item cf">
-                  <div class="student-details">
-                     <img class="avatar" src="https://randomuser.me/api/portraits/women/25.jpg" alt="Profile Picture">
-                     <h3>Ethel Dean</h3>
-                     <span class="email">ethel.dean@example.com</span>
-                  </div>
-                  <div class="joined-details">
-                     <span class="date">Joined 12-15-2005</span>
-                  </div>
-             </li>
-            `);
+            let html = `
+               <li>${data.name}</li>
+             `;
             studentList.insertAdjacentHTML('beforeend', html);
          }
       }
