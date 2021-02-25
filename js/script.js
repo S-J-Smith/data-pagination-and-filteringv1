@@ -29,7 +29,16 @@ function students(list, page) {
       for (let i = 0; i < list.length; i ++) {
          if (i >= startIndex && i < endIndex) {
             let html = `
-               <li>${data.name}</li>
+               <li class="student-item cf">
+                  <div class="student-details">
+                     <img class="avatar" src= ${data[i].picture.large} alt="Profile Picture">
+                     <h3>${data[i].name.first} ${data[i].name.last}</h3>
+                     <span class="email">${data[i].email}</span>
+                  </div>
+                  <div class="joined-details">
+                     <span class="date">${data[i].registered.date}</span>
+                  </div>
+               </li>
              `;
             studentList.insertAdjacentHTML('beforeend', html);
          }
