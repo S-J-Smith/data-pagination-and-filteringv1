@@ -46,11 +46,26 @@ function students(list, page) {
 };
 
 students(data, 1);
+
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
 
+function buttons(list) {
+   let pagination = list.length * perPage;
+   let ul = document.querySelector(".link-list");
+   ul.innerHTML = "";
+   for (let i = 0; i < pagination.length; i ++) {
+      let btn = `
+         <li>
+            <button type="button">1</button>
+         </li>
+      `;
+      ul.insertAdjacentHTML('beforeend', btn);
+   };
+}
 
 
 // Call functions
+buttons(data);
