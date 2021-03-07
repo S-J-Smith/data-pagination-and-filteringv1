@@ -19,7 +19,7 @@ Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
 
-function students(list, page) {
+function showPage(list, page) {
    let startIndex = (page * perPage) - perPage;
    let endIndex = (page * perPage);
 
@@ -45,27 +45,29 @@ function students(list, page) {
       }
 };
 
-students(data, 1);
+showPage(data, 1);
 
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
 
-function buttons(list) {
-   let pagination = list.length * perPage;
+function addPagination(list) {
+   let pagination = Math.ceil((list.length / perPage));
    let ul = document.querySelector(".link-list");
    ul.innerHTML = "";
-   for (let i = 0; i < pagination.length; i ++) {
-      let btn = `
+   for (let i = 0; i < pagination; i++) {
+      ul.innerHTML = `
          <li>
             <button type="button">1</button>
+            <button type="button">2</button>
          </li>
       `;
-      ul.insertAdjacentHTML('beforeend', btn);
-   };
+    };
 }
+
+console.log(addPagination);
 
 
 // Call functions
-buttons(data);
+addPagination(data);
