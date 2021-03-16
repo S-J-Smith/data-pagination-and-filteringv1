@@ -13,6 +13,7 @@ For assistance:
 /* Variable to store the number of items to select at any given time */
 
 const perPage = 9;
+let linkList = document.querySelector('.link-list');
 
 /*
 Create the `showPage` function
@@ -23,7 +24,7 @@ function showPage(list, page) {
    let startIndex = (page * perPage) - perPage;
    let endIndex = (page * perPage);
 
-   studentList = document.querySelector('.student-list');
+   let studentList = document.querySelector('.student-list');
    studentList.innerHTML = '';
 
       for (let i = 0; i < list.length; i ++) {
@@ -53,21 +54,37 @@ This function will create and insert/append the elements needed for the paginati
 */
 
 function addPagination(list) {
-   let pagination = Math.ceil((list.length / perPage));
-   let ul = document.querySelector(".link-list");
-   ul.innerHTML = "";
-   for (let i = 0; i < pagination; i++) {
-      ul.innerHTML = `
-         <li>
-            <button type="button">1</button>
-            <button type="button">2</button>
-         </li>
-      `;
-    };
-}
+   let pagination = Math.ceil((list.length/perPage));
 
-console.log(addPagination);
+   console.log(pagination);
+
+   let linkList = document.querySelector('.link-list');
+   linkList.innerHTML = '';
+
+      for (let i = 1; i < pagination; i++) {
+         let html = `
+            <li>
+               <button type="button">${i}</button>
+            </li>
+         `;
+         linkList.insertAdjacentHTML('beforeend', html);
+      };
+};
+
+   let btn = document.querySelector('button');
+      if(btn === true) {
+         btn.className = 'active';
+      };
+
+//    linkList.addEventListener('click', (event) => {
+//       if(event.target.btn == true) {
+//          event.target.textContent.classList('active').remove;
+//          textContent.classList('active').add;
+//       }
+//    showPage(data, 9);
+// })
 
 
 // Call functions
+
 addPagination(data);
