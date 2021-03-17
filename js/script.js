@@ -56,9 +56,9 @@ This function will create and insert/append the elements needed for the paginati
 function addPagination(list) {
    let pagination = Math.ceil((list.length/perPage));
 
-   console.log(pagination);
+   //console.log(pagination);
 
-   let linkList = document.querySelector('.link-list');
+   
    linkList.innerHTML = '';
 
       for (let i = 1; i < pagination; i++) {
@@ -69,20 +69,21 @@ function addPagination(list) {
          `;
          linkList.insertAdjacentHTML('beforeend', html);
       };
-};
 
-   let btn = document.querySelector('button');
-      if(btn === true) {
+      let btn = document.querySelector('button');
+
+      if (btn.ClassName !== 'active') {
          btn.className = 'active';
       };
+};
 
-//    linkList.addEventListener('click', (event) => {
-//       if(event.target.btn == true) {
-//          event.target.textContent.classList('active').remove;
-//          textContent.classList('active').add;
-//       }
-//    showPage(data, 9);
-// })
+
+   linkList.addEventListener('click', (event) => {
+      if(event.target === btn) {
+         
+      }
+   showPage(data, 9);
+});
 
 
 // Call functions
