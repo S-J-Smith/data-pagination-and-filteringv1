@@ -75,15 +75,15 @@ function addPagination(list) {
       if (btn.ClassName !== 'active') {
          btn.className = 'active';
       };
+
+      linkList.addEventListener('click', (event) => {
+         if(event.target === btn) {
+            document.querySelector('button').className('');
+         }
+      showPage(data, 9);
+   });
 };
 
-
-   linkList.addEventListener('click', (event) => {
-      if(event.target === btn) {
-         
-      }
-   showPage(data, 9);
-});
 
 
 // Call functions
