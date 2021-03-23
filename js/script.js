@@ -61,7 +61,7 @@ function addPagination(list) {
    
    linkList.innerHTML = '';
 
-      for (let i = 1; i < pagination; i++) {
+      for (let i = 1; i <= pagination; i++) {
          let html = `
             <li>
                <button type="button">${i}</button>
@@ -70,21 +70,23 @@ function addPagination(list) {
          linkList.insertAdjacentHTML('beforeend', html);
       };
 
-      let btn = document.querySelector('button');
+      let btn = document.querySelectorAll('button');
 
       if (btn.className !== 'active') {
          btn.className = 'active';
       };
 
-      let button = document.querySelector('button');
+      console.log(btn);
 
       linkList.addEventListener('click', (event) => {
-         if(event.target.type === 'button') {
-            for (let i = 1; i <= button.length; i++) {
+         if(event.target === 'btn') {
+            for (let i = 1; i <= btn; i++) {
                event.target.className = 'active';
             };
+            let index = event.target.textContent;
+            console.log(index);
+            showPage(data, index);
          };
-      showPage(data, 9);
    });
 };
 
