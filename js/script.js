@@ -79,9 +79,10 @@ function addPagination(list) {
       console.log(btn);
 
       linkList.addEventListener('click', (event) => {
-         if(event.target.type === btn) {
-            for (let i = 1; i <= btn.length; i++) {
-               event.target.className = 'active';
+         if(event.target.type === 'button') {
+            for (let i = 0; i <btn.length; i++) {
+               btn[i].classList.remove('active');
+               event.target = 'active';
             };
             let index = event.target.textContent;
             showPage(data, index);
