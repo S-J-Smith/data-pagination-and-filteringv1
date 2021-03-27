@@ -73,18 +73,17 @@ function addPagination(list) {
       let btn = document.querySelectorAll('button');
 
       if (btn.className !== 'active') {
-         btn.className = 'active';
+         btn[0].className = 'active';
       };
 
       console.log(btn);
 
       linkList.addEventListener('click', (event) => {
-         if(event.target === 'btn') {
-            for (let i = 1; i <= btn; i++) {
+         if(event.target.type === btn) {
+            for (let i = 1; i <= btn.length; i++) {
                event.target.className = 'active';
             };
             let index = event.target.textContent;
-            console.log(index);
             showPage(data, index);
          };
    });
