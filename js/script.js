@@ -60,7 +60,7 @@ function addPagination( list ) {
 		if ( event.target.type === 'button' ) {
 			for ( let i = 0; i < btn.length; i++ ) {
 				btn[ i ].classList.remove( 'active' );
-				event.target = 'active';
+				event.target.className = 'active';
 			};
 			let index = event.target.textContent;
 			showPage( data, index );
